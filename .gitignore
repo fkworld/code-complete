@@ -1,0 +1,6 @@
+.DS_Store
+dist
+node_modules
+
+# turbo 缓存文件
+.turbo
