@@ -1,0 +1,16 @@
+ls:
+  .dir: kebab-case
+  .*: kebab-case
+
+ignore:
+  - .git
+  - .husky
+  - .turbo
+  - .vscode
+  - dist
+  - node_modules
+  - README.md
+  - "./{projects,packages}/*/.turbo"
+  - "./{projects,packages}/*/dist"
+  - "./{projects,packages}/*/node_modules"
+  - "./{projects,packages}/*/README.md"

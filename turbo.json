@@ -1,0 +1,12 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "test:types": {
+      "outputLogs": "errors-only"
+    },
+    "test:lib": {
+      "outputLogs": "errors-only"
+    }
+  }
+}
