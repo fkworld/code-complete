@@ -36,7 +36,6 @@ export const getViteConfig: UserConfigFnObject = ({ mode }) => {
       port: 8901,
       strictPort: true,
       open: true,
-      proxy: {},
     },
     preview: {
       port: 8901,
