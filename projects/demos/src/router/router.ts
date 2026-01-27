@@ -7,7 +7,7 @@ export const router = createRouter({
   routes: [
     ...ROUTES,
     {
-      path: "/:pathMatch(.*)",
+      path: "/:pathMatch(.*)*",
       component: () => import("./route-404.vue"),
     },
   ],
