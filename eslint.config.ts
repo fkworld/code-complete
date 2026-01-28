@@ -20,6 +20,12 @@ export default antfu({
     },
   },
   ignores: ["**/node_modules/**/*", "**/dist/**/*", "**/generated/**/*"],
+  typescript: {
+    overrides: {
+      // 更严格的限制 any 的使用
+      "ts/no-explicit-any": "error",
+    },
+  },
   imports: {
     overrides: {
       "perfectionist/sort-imports": [
