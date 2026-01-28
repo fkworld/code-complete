@@ -1,7 +1,14 @@
-shellEmulator: true
-
-trustPolicy: accept-all
-
 packages:
   - packages/*
   - projects/*
+
+onlyBuiltDependencies:
+  - core-js
+  - edgedriver
+  - esbuild
+  - geckodriver
+  - less
+
+shellEmulator: true
+
+trustPolicy: accept-all
