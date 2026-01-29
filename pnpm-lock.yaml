@@ -96,6 +96,8 @@ importers:
 
   packages/template-package: {}
 
+  packages/utils: {}
+
   projects/demos:
     dependencies:
       pinia:

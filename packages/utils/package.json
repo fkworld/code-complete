@@ -1,0 +1,17 @@
+{
+  "name": "@fkworld/utils",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./src/main.ts",
+  "scripts": {
+    "test:types": "tsc",
+    "test:lib": "vitest run --coverage"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12"
+  }
+}
