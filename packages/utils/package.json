@@ -8,6 +8,10 @@
     "test:types": "tsc",
     "test:lib": "vitest run --coverage"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12"
+  }
 }
