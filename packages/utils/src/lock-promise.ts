@@ -8,13 +8,13 @@
  * ! 如果 Promise reject 了，会正常向调用方抛出
  */
 export function lockPromise<T extends (...args: Array<any>) => Promise<any>>(fn: T): T {
-  let lockedPromise: ReturnType<T> | undefined;
+  let lockedPromise: Promise<ReturnType<T>> | undefined;
 
-  return ((...args: Parameters<T>): ReturnType<T> => {
+  return ((...args: Parameters<T>): Promise<ReturnType<T>> => {
     if (!lockedPromise) {
       lockedPromise = fn(...args).finally(() => {
         lockedPromise = undefined;
-      }) as ReturnType<T>;
+      });
     }
     return lockedPromise;
   }) as T;

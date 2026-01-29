@@ -1,0 +1,14 @@
+{
+  "name": "@fkworld/mqtt-client",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./src/main.ts",
+  "scripts": {
+    "test:types": "tsc"
+  },
+  "dependencies": {
+    "@fkworld/utils": "workspace:*",
+    "mqtt": "^5.14.1"
+  }
+}

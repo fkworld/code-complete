@@ -1,6 +1,6 @@
 {
   "cSpell.ignorePaths": [".git", ".turbo", ".vscode", "generated", "node_modules", "pnpm-lock.yaml"],
-  "cSpell.words": ["cloc", "commitlint", "fkworld", "vitest"],
+  "cSpell.words": ["cloc", "commitlint", "emqx", "fkworld", "mqtt", "vitest"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
