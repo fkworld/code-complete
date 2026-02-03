@@ -8,6 +8,9 @@ export default defineConfig((...args) => {
     defineConfig({
       server: {
         open: "/home",
+        proxy: {
+          "/pet/": "https://petstore.swagger.io/v2/",
+        },
       },
     }),
   );
