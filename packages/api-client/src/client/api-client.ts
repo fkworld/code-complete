@@ -30,7 +30,7 @@ export class ApiClient<ApiDefines extends object> {
 
     const url = createValueChain()
       .do(() => sourceUrl)
-      .do((v) => this.clientOptions.rewriteUrl?.(v))
+      .do((v) => this.clientOptions.rewriteUrl?.(v) ?? v)
       .do((v) => {
         return isEmpty(requestOptions?.paramsPath)
           ? v
