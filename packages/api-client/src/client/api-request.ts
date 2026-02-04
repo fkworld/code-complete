@@ -2,10 +2,16 @@
 
 import type { ApiRequestOptions, ApiResponseWrapper } from "./api-client-types";
 
+import { lockPromise, sleep } from "@fkworld/utils";
 import axios from "axios";
 import { isEmpty } from "lodash-es";
 
 import { ApiError } from "./api-error";
+
+const refreshToken = lockPromise(async (): Promise<boolean> => {
+  await sleep(1000);
+  return true;
+});
 
 export const defaultApiRequestAxios = axios.create({
   adapter: "fetch",
@@ -45,8 +51,10 @@ export async function defaultApiRequest(requestOptions: ApiRequestOptions): Prom
 
   // 401 错误，一般需要刷新 token 后重试一次
   if (res.status === 401 && handle401) {
-    // TODO refreshToken
-    return defaultApiRequest({ ...requestOptions, handle401: false });
+    const isRefreshTokenSuccess = await refreshToken();
+    if (isRefreshTokenSuccess) {
+      return defaultApiRequest({ ...requestOptions, handle401: false });
+    }
   }
 
   // 网络错误
