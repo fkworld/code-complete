@@ -46,10 +46,11 @@ export class ApiClient<ApiDefines extends object> {
       url,
       method,
       headers: {
-        ...this.clientOptions.headers,
         ...requestOptions?.headers,
       },
-      paramsPath: requestOptions?.paramsPath,
+      paramsPath: {
+        ...requestOptions?.paramsPath,
+      },
       paramsQuery: {
         ...((isFastParamsQuery ? fastParams : {}) as any),
         ...requestOptions?.paramsQuery,
