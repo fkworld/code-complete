@@ -45,7 +45,7 @@ export async function defaultApiRequest(requestOptions: ApiRequestOptions): Prom
 
   // 401 错误，一般需要刷新 token 后重试一次
   if (res.status === 401 && handle401) {
-    // TODO refreshToke
+    // TODO refreshToken
     return defaultApiRequest({ ...requestOptions, handle401: false });
   }
 
