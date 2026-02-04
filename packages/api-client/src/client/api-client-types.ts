@@ -10,7 +10,6 @@ export interface ApiClientOptions {
   request: (requestOptions: ApiRequestOptions) => Promise<any>;
   rewriteUrl?: (url: string) => string;
   baseUrl?: string;
-  headers?: Record<string, any>;
 }
 
 export interface ApiRequestOptions {
