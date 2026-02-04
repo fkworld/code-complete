@@ -15,7 +15,7 @@ const { data, refreshAsync } = useRequest(async () => {
 
 <template>
   <div class="container">
-    <button @click="refreshAsync">
+    <button @click="refreshAsync()">
       刷新数据
     </button>
     <div
