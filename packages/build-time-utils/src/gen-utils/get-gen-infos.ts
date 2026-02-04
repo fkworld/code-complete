@@ -1,12 +1,13 @@
 import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc.js";
+import timezone from "dayjs/plugin/timezone";
+import utc from "dayjs/plugin/utc";
 
 dayjs.extend(utc);
-const TIME_FORMAT = "YYYY-MM-DD HH:mm:ss ZZ";
+dayjs.extend(timezone);
 
 export function getGenInfos(scriptFilename: string) {
   const genBy = scriptFilename;
-  const genTime = dayjs().utcOffset(8).format(TIME_FORMAT) || "";
+  const genTime = `${dayjs().tz("Asia/Shanghai").format("YYYY-MM-DD HH:mm:ss")} 北京时间`;
 
   const genInfos = { genBy, genTime };
   const genInfosString = JSON.stringify(genInfos, null, 2)
