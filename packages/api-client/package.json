@@ -9,6 +9,7 @@
     "test:types": "tsc && vitest run --typecheck"
   },
   "dependencies": {
+    "@fkworld/build-time-utils": "workspace:*",
     "@fkworld/utils": "workspace:*",
     "axios": "^1.13.4"
   }
