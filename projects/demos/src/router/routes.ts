@@ -9,4 +9,8 @@ export const ROUTES: Array<RouteRecordRaw> = [
     path: "/debug/debug-mqtt",
     component: () => import("@/views/debug/debug-mqtt/index.vue"),
   },
+  {
+    path: "/debug/debug-api",
+    component: () => import("@/views/debug/debug-api/index.vue"),
+  },
 ];

@@ -1,0 +1,15 @@
+{
+  "name": "@fkworld/api-client",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./src/main.ts",
+  "scripts": {
+    "gen-apis": "tsx ./scripts/gen-apis",
+    "test:types": "tsc && vitest run --typecheck"
+  },
+  "dependencies": {
+    "@fkworld/utils": "workspace:*",
+    "axios": "^1.13.4"
+  }
+}
