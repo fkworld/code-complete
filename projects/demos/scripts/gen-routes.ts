@@ -61,5 +61,3 @@ async function main() {
   prettierIt(OUTPUT_FILE);
   logGenOutput(OUTPUT_FILENAME, startTime);
 }
-
-export interface RoutesParams {}
