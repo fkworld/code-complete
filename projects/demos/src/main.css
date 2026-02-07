@@ -1,9 +1,6 @@
 @layer tailwindcss, project;
 
-@layer tailwindcss {
-  @import "tailwindcss";
-  @import "../../../shared/shared-tailwindcss.css";
-}
+@import "../../../shared/shared-tailwindcss.css" layer(tailwindcss);
 
 @layer project {
   body {
