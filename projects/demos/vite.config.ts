@@ -1,11 +1,29 @@
+import path from "node:path";
+
 import { defineConfig, mergeConfig } from "vite";
+import { createHtmlPlugin } from "vite-plugin-html";
 
-import { getViteConfig } from "../../packages/build-time-utils/src/get-vite-config";
+import { getHtmlInjectBuildResult, getViteConfig } from "../../packages/build-time-utils/src/main";
 
-export default defineConfig((...args) => {
+export default defineConfig(async (...args) => {
   return mergeConfig(
     getViteConfig(...args),
     defineConfig({
+      plugins: [
+        createHtmlPlugin({
+          inject: {
+            tags: [
+              {
+                tag: "script",
+                injectTo: "head",
+                children: await getHtmlInjectBuildResult({
+                  injectFilename: path.resolve(import.meta.dirname, "./src/main-inject.ts"),
+                }),
+              },
+            ],
+          },
+        }),
+      ],
       server: {
         open: "/home",
         proxy: {
