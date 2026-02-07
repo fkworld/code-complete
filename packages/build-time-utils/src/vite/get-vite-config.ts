@@ -6,7 +6,6 @@ import process from "node:process";
 
 import tailwindcss from "@tailwindcss/vite";
 import legacy from "@vitejs/plugin-legacy";
-import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { loadEnv } from "vite";
 import { createHtmlPlugin } from "vite-plugin-html";
@@ -51,7 +50,6 @@ export const getViteConfig = async (
             ],
           },
         }),
-      vue(),
       vueJsx(),
       tailwindcss(),
     ],

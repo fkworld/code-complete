@@ -1,9 +1,4 @@
 {
-  "[vue]": {
-    // vue 文件使用 eslint 进行格式化，避免 prettier 覆盖 eslint 规则
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
-  },
   "cSpell.ignorePaths": [".git", ".turbo", ".vscode", "generated", "node_modules", "pnpm-lock.yaml"],
   "cSpell.words": ["cloc", "commitlint", "emqx", "fkworld", "mqtt", "vitest"],
   "editor.codeActionsOnSave": {
@@ -38,8 +33,7 @@
   ],
   "files.associations": {
     "*.env": "env",
-    "*.env.*": "env",
-    "*.vue": "vue"
+    "*.env.*": "env"
   },
   // ! 注意：根据实践，在 monorepo 中支持不同的 tailwindcss 配置文件，会导致各种奇怪的问题；全局唯一配置是最稳妥的方案
   "tailwindCSS.experimental.configFile": "./shared/shared-tailwindcss.css",

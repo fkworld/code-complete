@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
+import { Route404 } from "./route-404";
 import { ROUTES } from "./routes";
 
 export const router = createRouter({
@@ -8,7 +9,7 @@ export const router = createRouter({
     ...ROUTES,
     {
       path: "/:pathMatch(.*)*",
-      component: () => import("./route-404.vue"),
+      component: Route404,
     },
   ],
 });
