@@ -1,5 +1,6 @@
 import type { Routes, RoutesParams } from "@/generated/routes";
 
+import { isPlainObject } from "lodash-es";
 import { useRoute } from "vue-router";
 
 import { router } from "./router";
@@ -30,7 +31,18 @@ export function navigateBack(delta = -1) {
   router.go(delta);
 }
 
+/**
+ * - 注意：此函数不具备响应性，只允许在进页面
+ */
 export function getRouteParams<T extends keyof RoutesParams>(_route: T): RoutesParams[T] {
   const route = useRoute();
-  return route?.query as RoutesParams[T];
+
+  // 简单校验
+  // 如果要复杂做的话，需要使用 zod 校验工具
+  if (!isPlainObject(route.query)) {
+    console.error("[Router] Route params is not a plain object:", route.query);
+    return {};
+  }
+
+  return route?.query;
 }
