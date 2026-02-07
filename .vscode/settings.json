@@ -1,20 +1,45 @@
 {
-  "cSpell.ignorePaths": [".git", ".turbo", ".vscode", "generated", "node_modules", "pnpm-lock.yaml"],
-  "cSpell.words": ["cloc", "commitlint", "emqx", "fkworld", "mqtt", "vitest"],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "files.associations": {
-    "*.env": "env",
-    "*.env.*": "env",
-    "*.vue": "vue"
-  },
   "[vue]": {
     // vue 文件使用 eslint 进行格式化，避免 prettier 覆盖 eslint 规则
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
+  },
+  "cSpell.ignorePaths": [".git", ".turbo", ".vscode", "generated", "node_modules", "pnpm-lock.yaml"],
+  "cSpell.words": ["cloc", "commitlint", "emqx", "fkworld", "mqtt", "vitest"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  // Enable eslint for all supported languages
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml",
+    "toml",
+    "xml",
+    "gql",
+    "graphql",
+    "astro",
+    "svelte",
+    "css",
+    "less",
+    "scss",
+    "pcss",
+    "postcss"
+  ],
+  "files.associations": {
+    "*.env": "env",
+    "*.env.*": "env",
+    "*.vue": "vue"
   },
   // shortest 是默认值，这里强制覆盖一下
   "typescript.preferences.importModuleSpecifier": "shortest"
