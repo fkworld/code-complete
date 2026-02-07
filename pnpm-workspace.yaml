@@ -1,3 +1,8 @@
+shellEmulator: true
+
+# eslint-disable-next-line pnpm/yaml-enforce-settings
+trustPolicy: accept-all
+
 packages:
   - packages/*
   - projects/*
@@ -8,7 +13,3 @@ onlyBuiltDependencies:
   - esbuild
   - geckodriver
   - less
-
-shellEmulator: true
-
-trustPolicy: accept-all
