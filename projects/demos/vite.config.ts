@@ -1,10 +1,14 @@
+import path from "node:path";
+
 import { defineConfig, mergeConfig } from "vite";
 
-import { getViteConfig } from "../../packages/build-time-utils/src/get-vite-config";
+import { getViteConfig } from "../../packages/build-time-utils/src/main";
 
-export default defineConfig((...args) => {
+export default defineConfig(async (env) => {
   return mergeConfig(
-    getViteConfig(...args),
+    await getViteConfig(env, {
+      htmlInjectFilepath: path.resolve(import.meta.dirname, "./src/main-inject.ts"),
+    }),
     defineConfig({
       server: {
         open: "/home",

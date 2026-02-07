@@ -1,6 +1,6 @@
-import type { UserConfigFnObject } from "vite";
+import type { ConfigEnv, UserConfig } from "vite";
 
-import type { BuildVars } from "../../../shared/shared-types";
+import type { BuildVars } from "../../../../shared/shared-types";
 
 import process from "node:process";
 
@@ -8,9 +8,20 @@ import legacy from "@vitejs/plugin-legacy";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { loadEnv } from "vite";
+import { createHtmlPlugin } from "vite-plugin-html";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-export const getViteConfig: UserConfigFnObject = ({ mode }) => {
+import { getHtmlInjectBuildResult } from "./get-html-inject-build-result";
+
+export const getViteConfig = async (
+  viteConfigEnv: ConfigEnv,
+  customConfigEnv: {
+    htmlInjectFilepath?: string;
+  },
+): Promise<UserConfig> => {
+  const { mode } = viteConfigEnv;
+  const { htmlInjectFilepath } = customConfigEnv;
+
   const { CI_ENV } = loadEnv(mode, process.cwd(), "") as BuildVars;
 
   return {
@@ -25,6 +36,20 @@ export const getViteConfig: UserConfigFnObject = ({ mode }) => {
         modernTargets: "baseline 2022",
         modernPolyfills: true,
       }),
+      !!htmlInjectFilepath &&
+        createHtmlPlugin({
+          inject: {
+            tags: [
+              {
+                tag: "script",
+                injectTo: "head",
+                children: await getHtmlInjectBuildResult({
+                  filepath: htmlInjectFilepath,
+                }),
+              },
+            ],
+          },
+        }),
       vue(),
       vueJsx(),
     ],
