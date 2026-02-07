@@ -25,7 +25,7 @@ async function main() {
   });
 
   fs.writeFileSync(
-    OUTPUT_FILENAME,
+    OUTPUT_FILE,
     [
       getGenInfos(SCRIPT_FILENAME),
       "",
