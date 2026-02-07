@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@fkworld/api-client": "workspace:*",
+    "@fkworld/build-time-utils": "workspace:*",
     "@fkworld/mqtt-client": "workspace:*",
     "pinia": "^3.0.4",
     "vite": "^7.3.1",

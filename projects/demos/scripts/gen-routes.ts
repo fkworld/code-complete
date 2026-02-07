@@ -1,9 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { ROUTES } from "@/router/routes";
+import { getGenInfos, logGenOutput, prettierIt } from "@fkworld/build-time-utils";
 
-import { getGenInfos, logGenOutput, prettierIt } from "../../../packages/build-time-utils/src/main";
+import { ROUTES } from "@/router/routes";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const SCRIPT_FILENAME = path.relative(ROOT, import.meta.filename);
@@ -30,7 +30,7 @@ async function main() {
       getGenInfos(SCRIPT_FILENAME),
       "",
       "/** 路由地址类型  */",
-      'export type Routes = typeof ROUTES_INFOS[number]["path"]',
+      'export type Routes = (typeof ROUTES_INFOS)[number]["path"]',
       "",
       "/** 路由参数类型 */",
       "export type RoutesParams = {",
