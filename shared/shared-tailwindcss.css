@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --*: initial;
+
+  --spacing: 4px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  --text-smallest: 10px;
+  --text-smaller: 12px;
+  --text-base: 14px;
+  --text-larger: 16px;
+  --text-largest: 18px;
+
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+}
