@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test:types": "vue-tsc"
+    "test:types": "vue-tsc",
+    "gen-routes": "tsx ./scripts/gen-routes.ts"
   },
   "dependencies": {
     "@fkworld/api-client": "workspace:*",
