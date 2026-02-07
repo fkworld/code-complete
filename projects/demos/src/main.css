@@ -1,6 +1,15 @@
-body {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5;
-  word-break: break-all;
+@layer tailwindcss, project;
+
+@layer tailwindcss {
+  @import "tailwindcss";
+  @import "../../../shared/shared-tailwindcss.css";
+}
+
+@layer project {
+  body {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    word-break: break-all;
+  }
 }

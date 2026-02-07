@@ -21,7 +21,7 @@ const { data, refreshAsync } = useRequest(async () => {
     <div
       v-for="item in data"
       :key="item.id"
-      class="line"
+      class="grid grid-cols-3 gap-4"
     >
       <div>{{ item.id }}</div>
       <div>{{ item.name }}</div>
@@ -29,13 +29,3 @@ const { data, refreshAsync } = useRequest(async () => {
     </div>
   </div>
 </template>
-
-<style lang="less" scoped>
-.container {
-  .line {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-}
-</style>

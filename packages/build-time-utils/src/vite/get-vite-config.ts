@@ -4,6 +4,7 @@ import type { BuildVars } from "../../../../shared/shared-types";
 
 import process from "node:process";
 
+import tailwindcss from "@tailwindcss/vite";
 import legacy from "@vitejs/plugin-legacy";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
@@ -52,6 +53,7 @@ export const getViteConfig = async (
         }),
       vue(),
       vueJsx(),
+      tailwindcss(),
     ],
     define: {
       __CI_ENV__: JSON.stringify(CI_ENV),

@@ -41,6 +41,8 @@
     "*.env.*": "env",
     "*.vue": "vue"
   },
+  // ! 注意：根据实践，在 monorepo 中支持不同的 tailwindcss 配置文件，会导致各种奇怪的问题；全局唯一配置是最稳妥的方案
+  "tailwindCSS.experimental.configFile": "./shared/shared-tailwindcss.css",
   // shortest 是默认值，这里强制覆盖一下
   "typescript.preferences.importModuleSpecifier": "shortest"
 }
