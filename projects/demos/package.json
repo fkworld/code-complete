@@ -7,10 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test:types": "vue-tsc"
+    "test:types": "vue-tsc",
+    "gen-routes": "tsx ./scripts/gen-routes.ts"
   },
   "dependencies": {
     "@fkworld/api-client": "workspace:*",
+    "@fkworld/build-time-utils": "workspace:*",
     "@fkworld/mqtt-client": "workspace:*",
     "pinia": "^3.0.4",
     "vite": "^7.3.1",

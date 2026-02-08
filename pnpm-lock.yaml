@@ -144,6 +144,9 @@ importers:
       '@fkworld/api-client':
         specifier: workspace:*
         version: link:../../packages/api-client
+      '@fkworld/build-time-utils':
+        specifier: workspace:*
+        version: link:../../packages/build-time-utils
       '@fkworld/mqtt-client':
         specifier: workspace:*
         version: link:../../packages/mqtt-client
