@@ -59,7 +59,7 @@ export default antfu(
     react: true,
   },
 
-  // 针对 vue 项目关闭所有 react 相关配置，，否则会导致 vue tsx 文件冲突
+  // 针对 vue 项目关闭所有 react 相关配置，否则会导致 vue tsx 文件冲突
   {
     files: ["**/projects/demos-vue/**"],
     rules: {
