@@ -1,0 +1,13 @@
+@layer tailwindcss, project;
+
+@import "../../../shared/shared-tailwindcss.css" layer(tailwindcss);
+
+@layer project {
+  body {
+    background-color: whitesmoke;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    word-break: break-all;
+  }
+}

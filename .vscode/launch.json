@@ -5,6 +5,12 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "demos-react dev",
+      "type": "node-terminal",
+      "command": "pnpm --filter demos-react run dev",
+      "request": "launch"
+    },
+    {
       "name": "demos-vue dev",
       "type": "node-terminal",
       "command": "pnpm --filter demos-vue run dev",

@@ -16,7 +16,7 @@
     "lint:lint-staged": "lint-staged",
     "lint:ls-lint": "ls-lint",
     "clean": "pnpm dlx rimraf --glob '{node_modules,dist,.turbo}' '{projects,packages}/*/{node_modules,dist,.turbo}'",
-    "upgrade": "pnpm dlx npm-check-updates",
+    "upgrade": "pnpm dlx npm-check-updates -i",
     "count:codes": "cloc --exclude-dir=node_modules,dist,generated projects packages"
   },
   "dependencies": {
@@ -26,9 +26,10 @@
     "type-fest": "^5.4.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^7.2.0",
+    "@antfu/eslint-config": "^7.3.0",
     "@commitlint/cli": "^20.3.1",
     "@commitlint/config-conventional": "^20.3.1",
+    "@eslint-react/eslint-plugin": "^2.12.2",
     "@ls-lint/ls-lint": "^2.3.1",
     "@types/lodash-es": "^4.17.12",
     "@vitest/coverage-v8": "^4.0.18",
