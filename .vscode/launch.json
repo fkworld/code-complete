@@ -5,9 +5,9 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "demos dev",
+      "name": "demos-vue dev",
       "type": "node-terminal",
-      "command": "pnpm --filter demos run dev",
+      "command": "pnpm --filter demos-vue run dev",
       "request": "launch"
     }
   ]
