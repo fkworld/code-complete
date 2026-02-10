@@ -7,7 +7,7 @@ import { lazy } from "react";
  * 更严格的路由配置
  * - 扁平化
  * - 按 path 排序（通过 eslint 实现）
- * - 只允许写 component 和 meta 字段
+ * - 只允许写 Component 和 meta 字段
  */
 export const ROUTES: Record<
   string,
