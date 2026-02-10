@@ -1,11 +1,25 @@
 import path from "node:path";
 
-import antfu from "@antfu/eslint-config";
+import antfu, { react, stylistic } from "@antfu/eslint-config";
 import eslintPluginBetterTailwindcss from "eslint-plugin-better-tailwindcss";
+import { mapValues } from "lodash-es";
+
+const reactRules = (await react())[1].rules!;
+const stylisticRules = (await stylistic())[0].rules!;
 
 export default antfu(
   {
-    stylistic: false,
+    stylistic: {
+      // 与 prettier 保持一致的格式化规则，这些参数可能被其他插件用到
+      quotes: "double",
+      semi: true,
+      overrides: {
+        // 关闭所有的 style 规则
+        ...mapValues(stylisticRules, () => "off"),
+        // 打开特定的 style 规则
+        "style/jsx-self-closing-comp": "error",
+      },
+    },
     ignores: ["**/node_modules/**/*", "**/dist/**/*", "**/generated/**/*"],
     typescript: {
       overrides: {
@@ -40,6 +54,16 @@ export default antfu(
           },
         ],
       },
+    },
+    vue: false,
+    react: true,
+  },
+
+  // 针对 vue 项目关闭所有 react 相关配置，否则会导致 vue tsx 文件冲突
+  {
+    files: ["**/projects/demos-vue/**"],
+    rules: {
+      ...mapValues(reactRules, () => "off"),
     },
   },
 

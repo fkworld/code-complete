@@ -6,6 +6,7 @@ import process from "node:process";
 
 import tailwindcss from "@tailwindcss/vite";
 import legacy from "@vitejs/plugin-legacy";
+import react from "@vitejs/plugin-react";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { loadEnv } from "vite";
 import { createHtmlPlugin } from "vite-plugin-html";
@@ -16,11 +17,12 @@ import { getHtmlInjectBuildResult } from "./get-html-inject-build-result";
 export const getViteConfig = async (
   viteConfigEnv: ConfigEnv,
   customConfigEnv: {
+    projectType: "react" | "vue";
     htmlInjectFilepath?: string;
   },
 ): Promise<UserConfig> => {
   const { mode } = viteConfigEnv;
-  const { htmlInjectFilepath } = customConfigEnv;
+  const { projectType, htmlInjectFilepath } = customConfigEnv;
 
   const { CI_ENV } = loadEnv(mode, process.cwd(), "") as BuildVars;
 
@@ -50,7 +52,8 @@ export const getViteConfig = async (
             ],
           },
         }),
-      vueJsx(),
+      projectType === "react" && react(),
+      projectType === "vue" && vueJsx(),
       tailwindcss(),
     ],
     define: {

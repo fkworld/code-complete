@@ -2,6 +2,10 @@
   "extends": ["@commitlint/config-conventional"],
   "rules": {
     "scope-empty": [2, "never"],
-    "scope-enum": [2, "always", ["root", "build-time-utils", "utils", "mqtt-client", "api-client", "demos-vue"]]
+    "scope-enum": [
+      2,
+      "always",
+      ["root", "build-time-utils", "utils", "mqtt-client", "api-client", "demos-react", "demos-vue"]
+    ]
   }
 }

@@ -7,7 +7,7 @@ import { getViteConfig } from "../../packages/build-time-utils/src/main";
 export default defineConfig(async (env) => {
   return mergeConfig(
     await getViteConfig(env, {
-      projectType: "vue",
+      projectType: "react",
       htmlInjectFilepath: path.resolve(import.meta.dirname, "./src/main-inject.ts"),
     }),
     defineConfig({

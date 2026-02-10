@@ -3,6 +3,6 @@ import { RouterView } from "vue-router";
 
 export const App = defineComponent({
   setup() {
-    return () => <RouterView></RouterView>;
+    return () => <RouterView />;
   },
 });
