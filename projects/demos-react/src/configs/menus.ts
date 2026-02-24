@@ -1,10 +1,14 @@
-import type { Routes } from "@/generated/routes";
+import { ROUTES } from "@/generated/routes";
 
-import { ROUTES } from "@/router/routes";
-
-export const MENUS: Array<{ title: string; link: Routes }> = Object.keys(ROUTES).map((path) => {
-  return {
-    title: path,
-    link: path as Routes,
-  };
-});
+export const MENUS: Array<{ title: string; link: string }> = [
+  ...ROUTES.map((route) => {
+    return {
+      title: route.path,
+      link: route.path,
+    };
+  }),
+  {
+    title: "/404",
+    link: "/404",
+  },
+];

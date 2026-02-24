@@ -2,11 +2,12 @@ import fs from "node:fs";
 import path from "node:path";
 
 import { getGenInfos, logGenOutput, prettierIt } from "@fkworld/build-time-utils";
-
-import { ROUTES } from "@/router/routes";
+import { getFileBasedRoutes } from "@fkworld/router-utils";
+import { glob } from "tinyglobby";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const SCRIPT_FILENAME = path.relative(ROOT, import.meta.filename);
+const ROUTES_DIR = path.resolve(ROOT, "./src/pages");
 const OUTPUT_FILE = path.resolve(ROOT, "./src/generated/routes.ts");
 const OUTPUT_FILENAME = path.relative(ROOT, OUTPUT_FILE);
 
@@ -15,49 +16,25 @@ main();
 async function main() {
   const startTime = performance.now();
 
-  const allRoutes = Object.entries(ROUTES).map(([path, route]) => {
-    return { path, meta: route.meta };
-  });
-  const allRoutesInfos = allRoutes.map((route) => {
-    return {
-      path: route.path,
-    };
-  });
+  // 使用 tinyglobby 查找所有二级目录下的 index.tsx 文件
+  const fileList = await glob(["*/index.tsx", "*/*/index.tsx"], { cwd: ROUTES_DIR, onlyFiles: true });
+  const fileMetaList = await glob(["*/index.meta.ts", "*/*/index.meta.ts"], { cwd: ROUTES_DIR, onlyFiles: true });
 
   fs.writeFileSync(
     OUTPUT_FILE,
     [
       getGenInfos(SCRIPT_FILENAME),
       "",
-      "/** 路由地址类型  */",
-      'export type Routes = (typeof ROUTES_INFOS)[number]["path"]',
-      "",
-      "/** 路由参数类型 */",
-      "export type RoutesParams = {",
-      ...allRoutes
-        .map((route) => {
-          if (!route.meta?.pageParams) {
-            return undefined;
-          }
-          return `"${route.path}": {
-            ${Object.entries(route.meta.pageParams)
-              .map(([key, value]) => {
-                if (!value) {
-                  return `"${key}"?: string;`;
-                } else {
-                  return `/** ${value} */\n"${key}"?: string;`;
-                }
-              })
-              .join("\n")}
-          }`;
-        })
-        .filter((v) => !!v),
-      "}",
-      "",
-      "/** 完整路由表 */",
-      `export const ROUTES_INFOS = ${JSON.stringify(allRoutesInfos, null, 2)} as const`,
+      await getFileBasedRoutes({
+        routesDir: ROUTES_DIR,
+        fileList,
+        fileMetaList,
+        onCalculateRoutePath: (filepath) => path.join("/", path.dirname(filepath)),
+        onCalculateImportPath: (filepath) => path.join("..", "pages", path.dirname(filepath), "index"),
+      }),
     ].join("\n"),
   );
+
   prettierIt(OUTPUT_FILE);
   logGenOutput(OUTPUT_FILENAME, startTime);
 }
