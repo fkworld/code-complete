@@ -5,7 +5,7 @@
     "scope-enum": [
       2,
       "always",
-      ["root", "build-time-utils", "utils", "mqtt-client", "api-client", "demos-react", "demos-vue"]
+      ["root", "build-time-utils", "utils", "mqtt-client", "api-client", "router-utils", "demos-react", "demos-vue"]
     ]
   }
 }

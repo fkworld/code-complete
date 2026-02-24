@@ -1,5 +1,7 @@
 import type { FC } from "react";
 
+import type { RoutePathAll } from "@/generated/routes";
+
 import { MENUS } from "@/configs/menus";
 import { navigateTo } from "@/router/router-utils";
 
@@ -14,7 +16,7 @@ export const MainLeft: FC = () => {
               hover:bg-black/5
             "
             key={menu.title}
-            onClick={() => navigateTo(menu.link)}
+            onClick={() => navigateTo(menu.link as RoutePathAll)}
           >
             {menu.title}
           </div>

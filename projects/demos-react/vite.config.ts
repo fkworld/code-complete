@@ -12,7 +12,7 @@ export default defineConfig(async (env) => {
     }),
     defineConfig({
       server: {
-        open: "/home",
+        open: "/",
         proxy: {
           "/pet/": "https://petstore.swagger.io/v2/",
         },

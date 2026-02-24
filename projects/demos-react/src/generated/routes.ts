@@ -1,29 +1,37 @@
 // {
 //   "genBy": "scripts/gen-routes.ts",
-//   "genTime": "2026-02-09 15:35:08 北京时间"
+//   "genTime": "2026-02-24 16:47:36 北京时间"
 // }
 
-/** 路由地址类型  */
-export type Routes = (typeof ROUTES_INFOS)[number]["path"];
+import { lazy } from "react";
+import type { NonIndexRouteObject } from "react-router";
 
-/** 路由参数类型 */
-export type RoutesParams = {
+/** 路由路径 */
+export type RoutePathAll = 
+  | "/home"
+  | "/debug/debug-route-params";
+/** 路由参数定义 */
+export type RouteSearchParamsAll = {
   "/debug/debug-route-params": {
-    /** 参数 A 的说明 */
-    argA?: string;
-    /** 参数 B 的说明 */
-    argB?: string;
-    /** 参数 C 的说明 */
-    argC?: string;
+  /**
+     * string 类型的参数
+     */
+    argString: string;
+  /** number 类型的参数 */
+    argNumber: number;
+  /** boolean 类型的参数 */
+    argBoolean: boolean;
   };
-};
+  };
 
-/** 完整路由表 */
-export const ROUTES_INFOS = [
+/** 路由表 */
+export const ROUTES = [
   {
-    path: "/debug/debug-route-params",
+  path: "/home",
+  Component: lazy(() => import("../pages/home/index"))
   },
   {
-    path: "/home",
+  path: "/debug/debug-route-params",
+  Component: lazy(() => import("../pages/debug/debug-route-params/index"))
   },
-] as const;
+  ] as const satisfies Array<Pick<NonIndexRouteObject, "path" | "Component">>;
