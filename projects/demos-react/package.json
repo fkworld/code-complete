@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@fkworld/build-time-utils": "workspace:*",
+    "@fkworld/log-client": "workspace:*",
     "@fkworld/router-utils": "workspace:*",
     "@tabler/icons-react": "^3.36.1",
     "react": "^19.2.0",

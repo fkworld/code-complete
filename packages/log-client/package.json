@@ -1,0 +1,13 @@
+{
+  "name": "@fkworld/log-client",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./src/main.ts",
+  "scripts": {
+    "test:types": "tsc",
+    "test:lib": "vitest run --coverage"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
