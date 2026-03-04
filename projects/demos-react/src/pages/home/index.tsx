@@ -1,3 +1,5 @@
+import { t } from "@/i18n/i18n";
+
 export default function Page() {
-  return <div>Hello World</div>;
+  return <div>{t("Hello World")}</div>;
 }
