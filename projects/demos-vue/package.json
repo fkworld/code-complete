@@ -15,7 +15,7 @@
     "@fkworld/build-time-utils": "workspace:*",
     "@fkworld/mqtt-client": "workspace:*",
     "pinia": "^3.0.4",
-    "vite": "^7.3.1",
+    "vite": "^8.0.0",
     "vue": "^3.5.26",
     "vue-request": "^2.0.4",
     "vue-router": "^4.6.4"

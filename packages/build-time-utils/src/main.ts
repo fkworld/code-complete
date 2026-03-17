@@ -1,3 +1,4 @@
+export { getFileBasedRoutes } from "./gen-scripts/get-file-based-routes";
 export { eslintIt } from "./gen-utils/eslint-it";
 export { getGenInfos } from "./gen-utils/get-gen-infos";
 export { logGenOutput } from "./gen-utils/log-gen-output";

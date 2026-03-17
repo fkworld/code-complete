@@ -1,8 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { getGenInfos, logGenOutput, prettierIt } from "@fkworld/build-time-utils";
-import { getFileBasedRoutes } from "@fkworld/router-utils";
+import { getFileBasedRoutes, getGenInfos, logGenOutput, prettierIt } from "@fkworld/build-time-utils";
 import { glob } from "tinyglobby";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
