@@ -10,7 +10,6 @@ import react from "@vitejs/plugin-react";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { loadEnv } from "vite";
 import { createHtmlPlugin } from "vite-plugin-html";
-import tsconfigPaths from "vite-tsconfig-paths";
 
 import { getHtmlInjectBuildResult } from "./get-html-inject-build-result";
 
@@ -28,10 +27,6 @@ export const getViteConfig = async (
 
   return {
     plugins: [
-      tsconfigPaths({
-        // vue-ts 的 bug，参考 https://github.com/aleclarson/vite-tsconfig-paths/issues/60
-        loose: true,
-      }),
       legacy({
         renderLegacyChunks: false,
         renderModernChunks: true,
@@ -58,6 +53,9 @@ export const getViteConfig = async (
     ],
     define: {
       __CI_ENV__: JSON.stringify(CI_ENV),
+    },
+    resolve: {
+      tsconfigPaths: true,
     },
     server: {
       host: true,

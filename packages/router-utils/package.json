@@ -3,14 +3,12 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "main": "./src/main.ts",
+  "main": "./src/create-router-utils.ts",
   "scripts": {
     "test:types": "tsc"
   },
   "dependencies": {
-    "@fkworld/build-time-utils": "workspace:*",
     "@tanstack/react-router": "^1.159.4",
-    "react-router": "^7.13.0",
-    "ts-morph": "^27.0.2"
+    "react-router": "^7.13.0"
   }
 }
