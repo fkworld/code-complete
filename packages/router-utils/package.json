@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "main": "./src/create-router-utils.ts",
+  "main": "./src/main.ts",
   "scripts": {
     "test:types": "tsc"
   },
