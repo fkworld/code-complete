@@ -12,5 +12,8 @@
     "@fkworld/build-time-utils": "workspace:*",
     "@fkworld/utils": "workspace:*",
     "axios": "^1.13.4"
+  },
+  "devDependencies": {
+    "openapi-typescript": "^5.4.2"
   }
 }
